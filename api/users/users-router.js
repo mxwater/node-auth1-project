@@ -1,9 +1,10 @@
 // Require the `restricted` middleware from `auth-middleware.js`. You will need it here!
+const router = require('express').Router()
 
 
 /**
   [GET] /api/users
-
+ 
   This endpoint is RESTRICTED: only authenticated clients
   should have access.
 
@@ -24,5 +25,10 @@
   }
  */
 
+  router.get('/', (req, res, next) => {
+    res.json('users')
+  })
+
 
 // Don't forget to add the router to the `exports` object so it can be required in other modules
+module.exports = router

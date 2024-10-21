@@ -29,10 +29,10 @@ const { restricted } = require('../auth/auth-middleware');
 
 router.get('/', restricted, async (req, res, next) => {
   try {
-    const users = await Users.find();  // Fetch all users
-    res.status(200).json(users);  // Return users array with status 200
+    const users = await Users.find();  
+    res.status(200).json(users);
   } catch (error) {
-    next(error);  // Pass errors to the error handler
+    next(error); 
   }
 });
 

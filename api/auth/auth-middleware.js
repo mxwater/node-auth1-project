@@ -9,12 +9,13 @@ const User = require('../users/users-model');
   }
 */
 function restricted(req, res, next) {
-  if (req.session.user) {
-    next();
+  if (req.session && req.session.user) {
+    next(); 
   } else {
-    res.status(401).json({ message: "You shall not pass!" });
+    res.status(401).json({ message: "You shall not pass!" });  
   }
 }
+
 
 /*
   If the username in req.body already exists in the database
